@@ -9,6 +9,7 @@
   --primary-text-color: #757575;
   --title-text-color: #212121;
   --accent-color: #2196f3;
+  --accent-dark-color: #188ce8;
   --white-color: #ffffff;
   --transparent-white-color: rgba(255, 255, 255, 0.6);
   --secondary-background-color: #f5f4fa;
@@ -19,6 +20,8 @@
   --icons-transparent-white: rgba(255, 255, 255, 0.1);
   --card-set-gap: 30px;
   --center-border: 1px solid #eeeeee;
+  --footer-form-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  --footer-form-border: 1px solid rgba(255, 255, 255, 0.3);
   --filters-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   --transition-timing: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -217,7 +220,7 @@ img {
 }
 .hero-button:hover,
 .hero-button:focus {
-  background: #188ce8;
+  background: var(--accent-dark-color);
 }
 /* Modal window */
 .backdrop {
@@ -471,7 +474,7 @@ footer {
 }
 
 .footer-list-title {
-  margin-top: 15px;
+  margin-top: 12px;
   margin-bottom: 20px;
 
   font-weight: 700;
@@ -501,6 +504,51 @@ footer {
 .footer-icons a:focus {
   background-color: var(--accent-color);
 }
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+.form-field {
+  display: flex;
+}
+.footer-input {
+  min-width: 358px;
+  min-height: 50px;
+  margin: 0;
+  padding: 15px 16px;
+  border: var(--footer-form-border);
+  border-radius: 4px;
+
+  background-color: inherit;
+  box-shadow: var(--footer-form-shadow);
+}
+/* .footer-input::placeholder {
+  tab-size: inherit;
+} */
+.footer-button {
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  min-height: 50px;
+  margin-left: 12px;
+  padding: 13px 28px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+
+  background-color: var(--accent-color);
+  box-shadow: var(--footer-form-shadow);
+  transition: background-color var(--transition-timing);
+}
+.footer-button:hover,
+.footer-button:focus {
+  background-color: var(--accent-dark-color);
+}
+.button-icon {
+  margin-left: 10px;
+}
+
 /* Portfolio Filters*/
 .filters {
   display: flex;
