@@ -22,6 +22,7 @@
   --center-border: 1px solid #eeeeee;
   --footer-form-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   --footer-form-border: 1px solid rgba(255, 255, 255, 0.3);
+  --modal-form-border: 1px solid rgba(33, 33, 33, 0.2);
   --filters-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   --transition-timing: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -65,7 +66,6 @@ img {
 .list {
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 .visually-hidden {
@@ -247,6 +247,7 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
+  padding: 40px;
   min-width: 528px;
   min-height: 581px;
   border-radius: 4px;
@@ -275,6 +276,118 @@ img {
 }
 .close-icon {
   fill: currentColor;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal-heading {
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+}
+.modal-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal-field:not(:last-child) {
+  margin-bottom: 10px;
+}
+.modal-field:last-child {
+  margin-bottom: 20px;
+}
+.modal-field:focus-within .modal-icon {
+  fill: var(--accent-color);
+}
+.modal-field textarea {
+  resize: none;
+}
+.modal-label {
+  display: inline-block;
+  margin-bottom: 4px;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+.modal-input {
+  width: 100%;
+  margin: 0;
+  padding: 11px 12px;
+  font: inherit;
+  border-radius: 4px;
+  outline: none;
+  border: var(--modal-form-border);
+  transition: border-color var(--transition-timing);
+}
+.modal-input:not(:last-child) {
+  padding-left: 42px;
+}
+.modal-input::placeholder {
+  opacity: 50%;
+  font-style: inherit;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+}
+.modal-input:focus {
+  border-color: var(--accent-color);
+}
+.modal-icon {
+  position: absolute;
+  top: 32px;
+  left: 12px;
+  fill: inherit;
+
+  transition: fill var(--transition-timing);
+}
+.modal-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.policy-text {
+  font-style: inherit;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+.policy-text a {
+  text-decoration: none;
+  color: var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+.checkbox-icon {
+  display: inline-block;
+  margin-right: 8px;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+  transition: background-color var(--transition-timing), border-color var(--transition-timing);
+  /* box-shadow var(--transition-timing); */
+}
+.checkbox-input:checked + .checkbox-icon {
+  background-color: var(--accent-color);
+  background-image: url(../images/check.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-origin: border-box; */
+  border-color: transparent;
+}
+/* .checkbox-input:hover + .checkbox-icon {
+  box-shadow: var(--footer-form-shadow);
+} */
+.modal-form > .form-button {
+  margin-right: auto;
+  margin-left: auto;
 }
 /* Sections */
 .section-title,
@@ -516,6 +629,7 @@ footer {
   min-width: 358px;
   min-height: 50px;
   margin: 0;
+  margin-right: 12px;
   padding: 15px 16px;
   border: var(--footer-form-border);
   border-radius: 4px;
@@ -523,26 +637,30 @@ footer {
   background-color: inherit;
   box-shadow: var(--footer-form-shadow);
 }
-/* .footer-input::placeholder {
-  tab-size: inherit;
-} */
-.footer-button {
+
+.form-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-width: 200px;
   min-height: 50px;
-  margin-left: 12px;
-  padding: 13px 28px;
+  padding: 10px 28px;
   border: none;
   border-radius: 4px;
-  text-align: center;
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  cursor: pointer;
+  letter-spacing: 0.06em;
 
   background-color: var(--accent-color);
   box-shadow: var(--footer-form-shadow);
   transition: background-color var(--transition-timing);
 }
-.footer-button:hover,
-.footer-button:focus {
+.form-button:hover,
+.form-button:focus {
   background-color: var(--accent-dark-color);
 }
 .button-icon {
